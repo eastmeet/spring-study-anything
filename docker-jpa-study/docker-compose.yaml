@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql8_for_jpa
+    restart: always
+    ports:
+      - "23306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_ROOT_DATABASE}
+      TZ: Asia/Seoul
+    command:
+      - --default-authentication-plugin=caching_sha2_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./docker_volumes/mysql-jpa/db/conf.d:/etc/mysql/conf.d
+      - ./docker_volumes/mysql-jpa/db/data:/var/lib/mysql
+      - ./docker_volumes/mysql-jap/db/initdb.d:/docker-entrypoint-initdb.d
