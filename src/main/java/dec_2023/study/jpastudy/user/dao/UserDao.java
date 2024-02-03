@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.sql.*;
 
 @Component
-public class UserDao {
+public abstract class UserDao {
 
     @Value("${datasource.driver-class-name}")
     private String className;
@@ -57,10 +57,9 @@ public class UserDao {
         return user;
     }
 
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName(className);
-        return DriverManager.getConnection(url, dbUserName, dbPassword);
-    }
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
+//        Class.forName(className);
+//        return DriverManager.getConnection(url, dbUserName, dbPassword);
 
 
 }
