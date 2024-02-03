@@ -1,5 +1,6 @@
 package dec_2023.study.jpastudy.blog.entity;
 
+import dec_2023.study.jpastudy.blog.type.BlogStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,19 @@ public class Blog {
     private Long id;
 
     private String title;
+
+    @Builder.Default
+    private BlogStatus status = BlogStatus.DRAFT;
+
+    @Builder.Default
+    private Long viewCount = 0L;
+
+    public Blog(Long viewCount) {
+        if (viewCount < 0) {
+            throw new IllegalArgumentException("view count는 0 보다 커야합니다.");
+        }
+        this.viewCount = viewCount;
+    }
 
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
     @Builder.Default

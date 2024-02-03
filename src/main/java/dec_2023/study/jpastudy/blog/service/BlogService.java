@@ -13,9 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +36,10 @@ public class BlogService {
 
 
     }
+
+//    public Blog getBlog(Long fromId, Long toId, String title) {
+//
+//    }
 
 //    public List<BlogRes> getBlog() {
 //        List<Blog> allByCommon = blogRepository.findAllByCommon();

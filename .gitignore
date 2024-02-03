@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+**/generated
 
 ### STS ###
 .apt_generated
@@ -39,6 +40,7 @@ out/
 ### env ###
 env.yml
 .env-docker
+
 
 ### docker ###
 docker-jpa-study/docker_volumes/**
