@@ -17,3 +17,30 @@ classDiagram
     UserDao <|-- NUserDao: extends
     UserDao <|-- DUserDao: extends
 ```
+
+### 인터페이스 도입
+```mermaid
+classDiagram
+    
+    class UserDao {
+        connectionMaker
+        +add(User user)
+        +get(String id)
+    }
+    class ConnectionMaker {
+        <<interface>>
+        makeConnection()
+    }
+    
+    class NConnectionMaker {
+        makeConnection()
+    }
+    class DConnectionMaker {
+        makeConnection()
+    }
+
+    ConnectionMaker <|.. UserDao
+    ConnectionMaker <|.. NConnectionMaker
+    ConnectionMaker <|.. DConnectionMaker
+
+```

@@ -1,5 +1,8 @@
 package dec_2023.study.jpastudy;
 
+import dec_2023.study.jpastudy.user.dao.ConnectionMaker;
+import dec_2023.study.jpastudy.user.dao.DConnectionMaker;
+import dec_2023.study.jpastudy.user.dao.NConnectionMaker;
 import dec_2023.study.jpastudy.user.dao.UserDao;
 import dec_2023.study.jpastudy.user.entity.User;
 import org.springframework.boot.CommandLineRunner;
@@ -11,19 +14,15 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class JpaStudyApplication implements CommandLineRunner {
 
-    private final UserDao dao;
-
-    public JpaStudyApplication(UserDao userDao) {
-        this.dao = userDao;
-    }
-
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         SpringApplication.run(JpaStudyApplication.class, args);
     }
 
-
     @Override
     public void run(String... args) throws Exception {
+
+        ConnectionMaker connectionMaker = new NConnectionMaker();
+        UserDao dao = new UserDao(connectionMaker);
 
         User user = new User();
         user.setId("eastmeet");
