@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 public class NUserDao extends UserDao {
 
-    @Override
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
-        return null;
+    public NUserDao(SimpleConnectionMaker simpleConnectionMaker) {
+        super(simpleConnectionMaker);
     }
+
 }

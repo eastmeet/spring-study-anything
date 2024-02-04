@@ -1,28 +1,20 @@
 package dec_2023.study.jpastudy.user.dao;
 
 import dec_2023.study.jpastudy.user.entity.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
 
 @Component
-public abstract class UserDao {
+@RequiredArgsConstructor
+public class UserDao {
 
-    @Value("${datasource.driver-class-name}")
-    private String className;
-
-    @Value("${datasource.url}")
-    private String url;
-
-    @Value("${datasource.username}")
-    private String dbUserName;
-
-    @Value("${datasource.password}")
-    private String dbPassword;
+    private final SimpleConnectionMaker simpleConnectionMaker;
 
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Connection c = getConnection();
+        Connection c = simpleConnectionMaker.makeNewConnection();
 
         PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values(?,?,?)");
 
@@ -38,7 +30,7 @@ public abstract class UserDao {
 
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Connection c = getConnection();
+        Connection c = simpleConnectionMaker.makeNewConnection();
 
         PreparedStatement ps = c.prepareStatement("select * from users where id = ?");
         ps.setString(1, id);
@@ -56,10 +48,5 @@ public abstract class UserDao {
 
         return user;
     }
-
-    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
-//        Class.forName(className);
-//        return DriverManager.getConnection(url, dbUserName, dbPassword);
-
 
 }
