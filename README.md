@@ -44,3 +44,26 @@ classDiagram
     ConnectionMaker <|.. DConnectionMaker
 
 ```
+
+
+### 관계 설정과 책임 p83.
+- 개방 폐쇄 원칙, Open-closed Principle
+- 전략 패턴
+```mermaid
+classDiagram
+    class UserDaoTest {
+    }
+    class UserDao {
+    }
+
+    class DConnectionMaker {
+    }
+
+    UserDao <|.. UserDaoTest: 생성/제공
+    UserDao <|.. UserDaoTest: 사용
+    ConnectionMaker <|.. UserDao
+    ConnectionMaker <|.. DConnectionMaker
+    DConnectionMaker <|.. UserDaoTest: 생성
+```
+
+

@@ -16,9 +16,10 @@ class UserDaoTest {
     @DisplayName("DB에 유저 등록하기 테스트")
     void register_user_test() throws SQLException, ClassNotFoundException {
 
-        // 다형성
+        // 다형성: DConnectionMaker 사용
         ConnectionMaker connectionMaker = new DConnectionMaker();
 
+        // UserDao 생성
         UserDao dao = new UserDao(connectionMaker);
 
         User user = new User();
@@ -26,27 +27,28 @@ class UserDaoTest {
         user.setName("이동우");
         user.setPassword("hi");
 
+        // UserDao 사용
         dao.add(user);
 
         logger.info(user.getId() + " 등록 성공");
     }
 
-
-
     @Test
     @DisplayName("유저_단일조회_테스트")
     void get_user_test() throws SQLException, ClassNotFoundException {
 
-        // 다형성
+        // 다형성: DConnectionMaker 사용
         ConnectionMaker connectionMaker = new DConnectionMaker();
+
+        // UserDao 생성
+        UserDao dao = new UserDao(connectionMaker);
 
         User user = new User();
         user.setId("eastmeet");
         user.setName("이동우");
         user.setPassword("hi");
 
-        UserDao dao = new UserDao(connectionMaker);
-
+        // UserDao 사용
         User user2 = dao.get(user.getId());
         logger.info(user2.getName());
         logger.info(user2.getPassword());
