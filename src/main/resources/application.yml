@@ -22,3 +22,8 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: update
+
+  security:
+    user:
+      name: ${security.username}
+      password: ${security.password}
