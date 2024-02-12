@@ -1,4 +1,5 @@
 ### 템플릿 메소드 패턴(template method pattern)
+
 ```mermaid
 classDiagram
     class UserDao {
@@ -19,9 +20,9 @@ classDiagram
 ```
 
 ### 인터페이스 도입
+
 ```mermaid
 classDiagram
-    
     class UserDao {
         connectionMaker
         +add(User user)
@@ -31,7 +32,7 @@ classDiagram
         <<interface>>
         makeConnection()
     }
-    
+
     class NConnectionMaker {
         makeConnection()
     }
@@ -45,10 +46,11 @@ classDiagram
 
 ```
 
-
 ### 관계 설정과 책임 p83.
+
 - 개방 폐쇄 원칙, Open-closed Principle
 - 전략 패턴
+
 ```mermaid
 classDiagram
     class UserDaoTest {
@@ -66,4 +68,25 @@ classDiagram
     DConnectionMaker <|.. UserDaoTest: 생성
 ```
 
+### 팩토리 도입
 
+```mermaid
+classDiagram
+    class Client {
+    }
+    class UserDao {
+    }
+    class DaoFactory {
+    }
+    class ConnectionMaker {
+    }
+    class DConnectionMaker {
+    }
+
+    ConnectionMaker <|.. DConnectionMaker
+    DConnectionMaker <|.. DaoFactory: 생성
+    UserDao <|.. DaoFactory: 생성
+    ConnectionMaker <|.. UserDao: 사용
+    DaoFactory <|.. Client: 요청
+    UserDao <|.. Client: 사용
+```

@@ -16,11 +16,8 @@ class UserDaoTest {
     @DisplayName("DB에 유저 등록하기 테스트")
     void register_user_test() throws SQLException, ClassNotFoundException {
 
-        // 다형성: DConnectionMaker 사용
-        ConnectionMaker connectionMaker = new DConnectionMaker();
-
-        // UserDao 생성
-        UserDao dao = new UserDao(connectionMaker);
+        // 오브젝트 팩토리 적용
+        UserDao dao = new DaoFactory().userDao();
 
         User user = new User();
         user.setId("eastmeet");
