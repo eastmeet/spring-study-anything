@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
 
@@ -16,8 +18,9 @@ class UserDaoTest {
     @DisplayName("DB에 유저 등록하기 테스트")
     void register_user_test() throws SQLException, ClassNotFoundException {
 
-        // 오브젝트 팩토리 적용
-        UserDao dao = new DaoFactory().userDao();
+        // 애플리케이션 컨텍스트 적용
+        ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        UserDao dao = context.getBean("userDao", UserDao.class);
 
         User user = new User();
         user.setId("eastmeet");

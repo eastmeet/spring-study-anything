@@ -90,3 +90,28 @@ classDiagram
     DaoFactory <|.. Client: 요청
     UserDao <|.. Client: 사용
 ```
+
+### 애플리케이션 컨텍스트 도입
+
+```mermaid
+classDiagram
+    class Client {
+    }
+    class UserDao {
+    }
+    class ApplicationContext {
+        bean: userDao, ...
+        +getBean()
+    }
+    class DaoFactory {
+        @Configuration
+        @Bean userDao
+    }
+
+    UserDao <|.. DaoFactory: <<생성>>
+    DaoFactory <|.. ApplicationContext: <<생성요청>>
+    ApplicationContext <|.. DaoFactory: <<등록>>
+    UserDao <|.. Client: 사용
+    ApplicationContext <|.. Client: <<요청>> "userDao"
+
+```
