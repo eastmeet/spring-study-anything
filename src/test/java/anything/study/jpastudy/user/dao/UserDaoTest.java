@@ -21,6 +21,22 @@ class UserDaoTest {
         // 애플리케이션 컨텍스트 적용
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
         UserDao dao = context.getBean("userDao", UserDao.class);
+        UserDao dao1 = context.getBean("userDao", UserDao.class);
+
+        DaoFactory daoFactory = new DaoFactory();
+        UserDao dao2 = daoFactory.userDao();
+        UserDao dao3 = daoFactory.userDao();
+
+        // dao == dao1 -> 동일성 identity
+        // 싱글톤(Singleton)
+        System.out.println(dao); //UserDao@733c423e
+        System.out.println(dao1); //UserDao@733c423e
+        System.out.println(dao == dao1);
+
+        // dao2 != dao3 ->
+        System.out.println(dao2); // UserDao@51684e4a
+        System.out.println(dao3); // UserDao@6ce1f601
+        System.out.println(dao2 == dao3);
 
         User user = new User();
         user.setId("eastmeet");

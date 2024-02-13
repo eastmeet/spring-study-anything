@@ -115,3 +115,16 @@ classDiagram
     ApplicationContext <|.. Client: <<요청>> "userDao"
 
 ```
+
+### 의존 관계
+```mermaid
+classDiagram
+    class UserDao {
+    }
+    class ConnectionMaker {
+    }
+    class DConnectionMaker {
+    }
+    ConnectionMaker <.. UserDao: <<사용>>
+    ConnectionMaker <|.. DConnectionMaker
+```
