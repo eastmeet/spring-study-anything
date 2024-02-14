@@ -128,3 +128,17 @@ classDiagram
     ConnectionMaker <.. UserDao: <<사용>>
     ConnectionMaker <|.. DConnectionMaker
 ```
+
+
+### 부가 기능 추가
+```mermaid
+classDiagram
+    class UserDao {
+    }
+    class CountingConnectionMaker {
+    }
+    class DConnectionMaker {
+    }
+    CountingConnectionMaker <.. UserDao: <<사용>>
+    DConnectionMaker <.. CountingConnectionMaker: <<사용>>
+```
