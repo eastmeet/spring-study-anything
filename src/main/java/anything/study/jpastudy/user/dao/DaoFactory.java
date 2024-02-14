@@ -19,4 +19,18 @@ public class DaoFactory {
     public ConnectionMaker initConnectionMaker() {
         return new DConnectionMaker();
     }
+
+    // 개발용
+//    @Bean
+//    public ConnectionMaker connectionMaker() {
+//        return new LocalDBConnectionMaker();
+//    }
+
+//    운영용
+//    @Bean
+//    public ConnectionMaker connectionMaker() {
+//        return new ProductDBConnectionMaker();
+//    }
+
+
 }

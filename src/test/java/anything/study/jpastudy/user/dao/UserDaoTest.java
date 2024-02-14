@@ -18,7 +18,7 @@ class UserDaoTest {
     @DisplayName("DB에 유저 등록하기 테스트")
     void register_user_test() throws SQLException, ClassNotFoundException {
 
-        // 애플리케이션 컨텍스트 적용
+        // 애플리케이션 컨텍스트 적용 -> 의존관계 검색
         ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
         UserDao dao = context.getBean("userDao", UserDao.class);
         UserDao dao1 = context.getBean("userDao", UserDao.class);
