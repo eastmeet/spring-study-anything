@@ -1,6 +1,7 @@
 package anything.study.jpastudy.user.dao;
 
 import anything.study.jpastudy.user.entity.User;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -73,11 +74,18 @@ class UserDaoConnectionCountingTest {
 
         // UserDao 사용
         User user2 = dao.get(user.getId());
-        logger.info(user2.getName());
-        logger.info(user2.getPassword());
-        logger.info(user2.getId() + " 조회 성공");
+
+        if (!user.getName().equals(user2.getName())) {
+            logger.info("테스트 실패 (name)");
+        } else if (!user.getPassword().equals(user2.getPassword())) {
+            logger.info("테스트 실패 (password)");
+        } else {
+            logger.info("조회 테스트 성공");
+        }
+
         CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
-        System.out.println("Connection counter : " + ccm.getCounter());
+
+        Assertions.assertThat(ccm.getCounter()).isEqualTo(1);
     }
 
     @Test
