@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @Component
-
 public interface ConnectionMaker {
 
     Connection makeConnection() throws SQLException, ClassNotFoundException;
