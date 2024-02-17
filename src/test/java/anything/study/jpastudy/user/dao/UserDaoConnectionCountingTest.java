@@ -2,8 +2,6 @@ package anything.study.jpastudy.user.dao;
 
 import anything.study.jpastudy.user.entity.User;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +16,6 @@ class UserDaoConnectionCountingTest {
 
     @Test
     void user_add_and_get() throws SQLException, ClassNotFoundException {
-
         ApplicationContext context = new AnnotationConfigApplicationContext(CountingDaoFactory.class);
 
         UserDao dao = context.getBean("userDao", UserDao.class);
@@ -35,5 +32,20 @@ class UserDaoConnectionCountingTest {
         Assertions.assertThat(user2.getPassword()).isEqualTo(user.getPassword());
     }
 
+    @Test
+    void loadYamlProperties_Test() {
+        DataSourceProperty property = DataSourceProperty.loadYamlProperties();
+        logger.info("===========================================================");
+        Assertions.assertThat(property).isNotNull();
+        Assertions.assertThat(property.getDriverClassName()).isNotNull();
+        Assertions.assertThat(property.getUrl()).isNotNull();
+        Assertions.assertThat(property.getUsername()).isNotNull();
+        Assertions.assertThat(property.getPassword()).isNotNull();
+        logger.info(property.getDriverClassName());
+        logger.info(property.getUrl());
+        logger.info(property.getUsername());
+        logger.info(property.getPassword());
+        logger.info("===========================================================");
+    }
 
 }

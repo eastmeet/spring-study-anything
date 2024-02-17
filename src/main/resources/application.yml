@@ -15,6 +15,7 @@ spring:
     url: ${datasource.url}
     username: ${datasource.username}
     password:  ${datasource.password}
+
   jpa:
     open-in-view: false
     properties:
