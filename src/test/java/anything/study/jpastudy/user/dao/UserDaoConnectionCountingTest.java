@@ -25,20 +25,23 @@ class UserDaoConnectionCountingTest {
 
         UserDao dao = context.getBean("userDao", UserDao.class);
 
+        User user1 = new User("eastmeet", "이동우", "hitest");
+        User user2 = new User("hong", "홍길동", "hiDB");
+
         dao.deleteAll();
         Assertions.assertThat(dao.getCount()).isZero();
 
-        User user = new User();
-        user.setId("eastmeet");
-        user.setName("이동우");
-        user.setPassword("hitest");
+        dao.add(user1);
+        dao.add(user2);
+        Assertions.assertThat(dao.getCount()).isEqualTo(2);
 
-        dao.add(user);
-        Assertions.assertThat(dao.getCount()).isEqualTo(1);
+        User userGet1 = dao.get(user1.getId());
+        Assertions.assertThat(user1.getName()).isEqualTo(userGet1.getName());
+        Assertions.assertThat(user1.getPassword()).isEqualTo(userGet1.getPassword());
 
-        User user2 = dao.get(user.getId());
-        Assertions.assertThat(user2.getName()).isEqualTo(user.getName());
-        Assertions.assertThat(user2.getPassword()).isEqualTo(user.getPassword());
+        User userGet2 = dao.get(user2.getId());
+        Assertions.assertThat(user2.getName()).isEqualTo(userGet2.getName());
+        Assertions.assertThat(user2.getPassword()).isEqualTo(userGet2.getPassword());
     }
 
     @Test
