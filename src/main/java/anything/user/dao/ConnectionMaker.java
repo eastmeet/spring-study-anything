@@ -1,4 +1,4 @@
-package anything.study.jpastudy.user.dao;
+package anything.user.dao;
 
 
 import org.springframework.stereotype.Component;

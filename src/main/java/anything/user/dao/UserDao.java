@@ -1,6 +1,6 @@
-package anything.study.jpastudy.user.dao;
+package anything.user.dao;
 
-import anything.study.jpastudy.user.entity.User;
+import anything.user.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;

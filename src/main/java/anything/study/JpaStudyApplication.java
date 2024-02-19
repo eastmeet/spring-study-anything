@@ -1,6 +1,6 @@
 package anything.study;
 
-import anything.study.jpastudy.user.dao.DataSourceProperty;
+import anything.user.dao.DataSourceProperty;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

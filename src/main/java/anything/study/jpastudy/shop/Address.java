@@ -1,15 +1,11 @@
 package anything.study.jpastudy.shop;
 
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Address {
 
     private String country;
@@ -20,4 +16,13 @@ public class Address {
 
     private String detailAddress;
 
+    @Override
+    public String toString() {
+        return "\"address\": {" +
+                "\"country\"=" + '"' + country + '"' +
+                ", \"postalCode\"=" + '"' + postalCode + '"' +
+                ", \"province\"=" + '"' + province + '"' +
+                ", \"detailAddress\"=" + '"' + detailAddress + '"' +
+                '}';
+    }
 }

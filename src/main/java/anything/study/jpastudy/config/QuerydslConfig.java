@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class QuerydslConfig {
 
+
     @PersistenceContext
     protected EntityManager em;
 

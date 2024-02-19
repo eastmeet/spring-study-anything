@@ -1,4 +1,4 @@
-package anything.study.jpastudy.user.dao;
+package anything.user.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

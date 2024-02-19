@@ -1,8 +1,7 @@
-package anything.study.jpastudy.user.dao;
+package anything.user.dao;
 
 import lombok.extern.slf4j.Slf4j;
 import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.InputStream;
 import java.sql.Connection;

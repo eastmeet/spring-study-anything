@@ -5,9 +5,7 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import anything.study.jpastudy.blog.dto.BlogRes;
 import anything.study.jpastudy.blog.dto.BlogTermsRes;
-import anything.study.jpastudy.blog.dto.QBlogTermsRes;
 import anything.study.jpastudy.blog.entity.Blog;
-import anything.study.jpastudy.blog.entity.QBlogTerms;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

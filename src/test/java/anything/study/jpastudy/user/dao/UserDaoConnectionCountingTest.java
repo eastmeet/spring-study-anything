@@ -1,6 +1,9 @@
 package anything.study.jpastudy.user.dao;
 
-import anything.study.jpastudy.user.entity.User;
+import anything.user.dao.DaoFactory;
+import anything.user.dao.DataSourceProperty;
+import anything.user.dao.UserDao;
+import anything.user.entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;

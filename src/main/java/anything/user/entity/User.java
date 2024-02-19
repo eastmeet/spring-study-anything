@@ -1,4 +1,4 @@
-package anything.study.jpastudy.user.entity;
+package anything.user.entity;
 
 import lombok.Getter;
 import lombok.Setter;
