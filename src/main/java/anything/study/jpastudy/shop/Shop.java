@@ -22,6 +22,4 @@ public class Shop {
     @Convert(converter = AddressConverter.class)
     private Address address;
 
-
-
 }
