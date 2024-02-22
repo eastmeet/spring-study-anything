@@ -108,11 +108,11 @@ classDiagram
         @Bean userDao
     }
 
-    UserDao <|.. DaoFactory: <<생성>>
-    DaoFactory <|.. ApplicationContext: <<생성요청>>
-    ApplicationContext <|.. DaoFactory: <<등록>>
+    UserDao <|.. DaoFactory: 생성
+    DaoFactory <|.. ApplicationContext: 생성요청
+    ApplicationContext <|.. DaoFactory: 등록
     UserDao <|.. Client: 사용
-    ApplicationContext <|.. Client: <<요청>> "userDao"
+    ApplicationContext <|.. Client: 요청 "userDao"
 
 ```
 
@@ -125,7 +125,7 @@ classDiagram
     }
     class DConnectionMaker {
     }
-    ConnectionMaker <.. UserDao: <<사용>>
+    ConnectionMaker <.. UserDao: 사용
     ConnectionMaker <|.. DConnectionMaker
 ```
 
@@ -139,6 +139,6 @@ classDiagram
     }
     class DConnectionMaker {
     }
-    CountingConnectionMaker <.. UserDao: <<사용>>
-    DConnectionMaker <.. CountingConnectionMaker: <<사용>>
+    CountingConnectionMaker <.. UserDao: 사용
+    DConnectionMaker <.. CountingConnectionMaker: 사용
 ```
