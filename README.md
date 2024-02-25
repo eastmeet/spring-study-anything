@@ -142,3 +142,11 @@ classDiagram
     CountingConnectionMaker <.. UserDao: 사용
     DConnectionMaker <.. CountingConnectionMaker: 사용
 ```
+
+
+### TDD: 선 테스트 작성 후 기능 구현
+- 복잡도가 낮은, 테스트 가능한 코드로 구현 가능
+- 쉽게 발견하기 어려운 엣지(Edge)케이스를 놓치지 않게 해준다.
+- 구현에 대한 빠른 피드백을 받을 수 있다.
+- 과감한 리팩토링이 가능해진다.
+

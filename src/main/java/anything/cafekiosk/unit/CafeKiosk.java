@@ -3,7 +3,6 @@ package anything.cafekiosk.unit;
 import anything.cafekiosk.unit.beverage.Beverage;
 import anything.cafekiosk.unit.order.Order;
 import lombok.Getter;
-import org.aspectj.apache.bcel.generic.LOOKUPSWITCH;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -34,22 +33,26 @@ public class CafeKiosk {
         }
     }
 
+    public int calculateTotalPrice() {
+//        int totalPrice = 0;
+//
+//        for (Beverage beverage : beverages) {
+//            totalPrice += beverage.getPrice();
+//        }
+//
+//        return totalPrice;
+
+        // 테스트 코드에 기반한 리팩토링 수행
+        return beverages.stream().mapToInt(Beverage::getPrice).sum();
+    }
+
+
     public void delete(Beverage beverage) {
         beverages.remove(beverage);
     }
 
     public void deleteAll() {
         beverages.clear();
-    }
-
-    public int calculateTotalPrice() {
-        int totalPrice = 0;
-
-        for (Beverage b : beverages) {
-            totalPrice += b.getPrice();
-        }
-
-        return totalPrice;
     }
 
     public Order createOrder(LocalDateTime currentDateTime) {
@@ -61,4 +64,5 @@ public class CafeKiosk {
 
         return new Order(currentDateTime, beverages);
     }
+
 }
