@@ -1,6 +1,6 @@
-package anything.composition.composition.test;
+package anything.composition.practical;
 
-public class CoffeeMaker {
+public class Refrigerator {
 
     private boolean hasWorkTodo;
 
@@ -8,12 +8,11 @@ public class CoffeeMaker {
         this.hasWorkTodo = hasWorkTodo;
     }
 
-    public void brewCoffee() {
+    public void orderFood() {
         if (this.hasWorkTodo) {
-            System.out.println("brew Coffee is done");
+            System.out.println("Ordering Food");
             hasWorkTodo = false;
         }
-
     }
 
 }

@@ -1,4 +1,4 @@
-package anything.composition.composition;
+package anything.composition;
 
 public class Monitor extends Product {
     private int size;

@@ -1,4 +1,4 @@
-package anything.composition.composition;
+package anything.composition;
 
 public class ComputerCase extends Product {
     private String powerSupply;

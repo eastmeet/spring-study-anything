@@ -1,4 +1,4 @@
-package anything.composition.composition.test;
+package anything.composition.practical;
 
 public class DishWasher {
 

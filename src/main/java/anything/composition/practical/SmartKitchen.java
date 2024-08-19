@@ -1,4 +1,4 @@
-package anything.composition.composition.test;
+package anything.composition.practical;
 
 import lombok.Getter;
 
@@ -13,20 +13,6 @@ public class SmartKitchen {
         brewMaster = new CoffeeMaker();
         dishWasher = new DishWasher();
         iceBox = new Refrigerator();
-    }
-
-    public void addWater() {
-        brewMaster.setHasWorkTodo(true);
-        brewMaster.brewCoffee();
-    }
-
-    public void pourMilk() {
-        iceBox.setHasWorkTodo(true);
-        iceBox.orderFood();
-    }
-
-    public void loadDishwasher() {
-        dishWasher.doDished();
     }
 
     public void setKitchenState(boolean coffeeFlag, boolean fridgeFlag, boolean dishWasherFlag) {

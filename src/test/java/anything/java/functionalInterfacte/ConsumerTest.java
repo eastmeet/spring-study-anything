@@ -13,7 +13,7 @@ public class ConsumerTest {
             if (s == null) {
                 throw new NullPointerException("Input string cannot be null");
             } else if ("haha".equals(s)) {
-                throw new RuntimeException("consumer test");
+                throw new RuntimeException("consumer practical");
             } else {
                 System.out.println("s = " + s);
             }
